@@ -22,12 +22,19 @@
 ### <http://www.gnu.org/licenses/>.
 
 use OpenOffice::OODoc;
+use Getopt::Long;
 
 ### Progam name
 (my $prog = $0) =~ s{^.*/}{};
 
+### Process options
+my $size = "1024x768";
+GetOptions ("size=s" => \$size);
+die "$prog:E: --size option must be in NNNxMMM format\n"
+  if not ($size =~ /^\d+x\d+$/);
+
 ### Check number of arguments
-die "Usage: $prog inputfile.pdf outputfile.swi\n"
+die "Usage: $prog [--size=NNNxMMM] inputfile.pdf outputfile.swi\n"
   if (@ARGV != 2);
 
 ### Input paramenters
@@ -71,7 +78,7 @@ foreach $i (1 .. $npages) {
     push (@files, $pngpage);
 
     ## Convert page to PNG image
-    system ("convert -density 300x300 -resize 1024x768 $pdfpage $pngpage") == 0
+    system ("convert -density 300x300 -resize $size $pdfpage $pngpage") == 0
       or die "$prog:E: convert PDF->PNG file for page $i\n";
 
     ## Create new page in presentation
