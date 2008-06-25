@@ -6,7 +6,8 @@
 ### (http://linuxgazette.net/116/misc/herrmann/img2ooImpress.pl.txt)
 ###
 ### The folowing packages (as in Debian) are needed: xpdf-utils,
-### pdftk, and imagemagick.
+### pdftk, and imagemagick.  The Perl modules OpenOffice::OODoc and
+### Getopt::Long are also needed.
 
 ### Copyright (C) 2008  Rafael Laboissiere
 ###
