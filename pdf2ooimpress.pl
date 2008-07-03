@@ -34,7 +34,7 @@ use OpenOffice::OODoc;
 use Getopt::Long;
 use File::Temp qw [tempfile];
 
-### Progam name
+### Program name
 (my $prog = $0) =~ s{^.*/}{};
 
 ### Process options
