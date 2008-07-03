@@ -4,10 +4,6 @@
 ### into the OpenOffice Impress format (.sxi)
 ### Based on a script written by K.-H. Herrmann June 2005
 ### (http://linuxgazette.net/116/misc/herrmann/img2ooImpress.pl.txt)
-###
-### The folowing packages (as in Debian) are needed: xpdf-utils, and
-### pdftk.  The Perl modules OpenOffice::OODoc and Getopt::Long are
-### also needed.
 
 ### Copyright (C) 2008  Rafael Laboissiere
 ###
