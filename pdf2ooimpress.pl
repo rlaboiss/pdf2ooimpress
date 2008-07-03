@@ -29,6 +29,7 @@
 
 use OpenOffice::OODoc;
 use Getopt::Long;
+use File::Temp qw [tempfile];
 
 ### Progam name
 (my $prog = $0) =~ s{^.*/}{};
@@ -58,8 +59,7 @@ while (<PDFINFO>) {
 }
 
 ### Temporary file for each page in the PDF input file
-my $pdfpage = qx (tempfile --suffix=.pdf);
-chomp $pdfpage;
+my ($fh, $pdfpage) = tempfile (SUFFIX => ".pdf");
 
 ### Create ooImpress document
 my $document = ooDocument (
@@ -79,8 +79,7 @@ foreach $i (1 .. $npages) {
       or die "$prog:E: pdftk cannot extract page $i of $infile\n";
 
     ## Temporary file for PNG image
-    my $pngpage = qx (tempfile --suffix=.png);
-    chomp $pngpage;
+    my ($f, $pngpage) = tempfile (SUFFIX => ".png");
     push (@files, $pngpage);
 
     ## Convert page to PNG image
