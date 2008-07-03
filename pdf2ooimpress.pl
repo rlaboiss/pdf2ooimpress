@@ -34,6 +34,7 @@ use OpenOffice::OODoc;
 use Getopt::Long;
 use File::Temp qw [tempfile];
 use Image::Magick;
+use PDF::API2;
 
 ### Program name
 (my $prog = $0) =~ s{^.*/}{};
@@ -53,14 +54,8 @@ my $infile = $ARGV [0];
 my $outfile = $ARGV [1];
 
 ### Get number of pages of the input PDF file
-open (PDFINFO, "pdfinfo $infile |")
-  or die "$prog:E: Cannot run pdfinfo on input file $infile\n";
-my $npages;
-while (<PDFINFO>) {
-    if (/^Pages:\s+(\d+)/) {
-        $npages = $1;
-    }
-}
+my $pdf = PDF::API2 -> open ($infile);
+my $npages = $pdf -> pages ();
 
 ### Temporary file for each page in the PDF input file
 my ($fh, $pdfpage) = tempfile (SUFFIX => ".pdf");
