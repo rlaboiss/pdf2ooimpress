@@ -74,8 +74,9 @@ print (sprintf ("Page: %4d (out of $npages)", 0));
 foreach my $i (1 .. $npages) {
 
     ## Get individual page in a separate PDF file
-    system ("pdftk $infile cat $i output $pdfpage") == 0
-      or die "$prog:E: pdftk cannot extract page $i of $infile\n";
+    my $p = PDF::API2 -> new ();
+    $p -> importpage ($pdf, $i);
+    $p -> saveas ($pdfpage);
 
     ## Temporary file for PNG image
     my ($f, $pngpage) = tempfile (SUFFIX => ".png");
