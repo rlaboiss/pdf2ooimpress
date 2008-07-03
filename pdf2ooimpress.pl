@@ -119,4 +119,3 @@ $document -> save ();
 ### Remove temporary files
 map {unlink $_} @files;
 unlink $pdfpage;
-
