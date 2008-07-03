@@ -66,7 +66,7 @@ $document -> createImageStyle ("slide");
 my @files = ();
 
 ### Autoflush STDOUT
-$| = 1;
+local $| = 1;
 
 print (sprintf ("Page: %4d (out of $npages)", 0));
 
