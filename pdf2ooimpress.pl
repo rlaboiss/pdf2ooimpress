@@ -27,6 +27,7 @@
 
 ### $Id$
 
+use strict;
 use OpenOffice::OODoc;
 use Getopt::Long;
 use File::Temp qw [tempfile];
@@ -72,7 +73,7 @@ my @files = ();
 
 print (sprintf ("Page: %4d (out of $npages)", 0));
 
-foreach $i (1 .. $npages) {
+foreach my $i (1 .. $npages) {
 
     ## Get individual page in a separate PDF file
     system ("pdftk $infile cat $i output $pdfpage") == 0
