@@ -5,9 +5,9 @@
 ### Based on a script written by K.-H. Herrmann June 2005
 ### (http://linuxgazette.net/116/misc/herrmann/img2ooImpress.pl.txt)
 ###
-### The folowing packages (as in Debian) are needed: xpdf-utils,
-### pdftk, and imagemagick.  The Perl modules OpenOffice::OODoc and
-### Getopt::Long are also needed.
+### The folowing packages (as in Debian) are needed: xpdf-utils, and
+### pdftk.  The Perl modules OpenOffice::OODoc and Getopt::Long are
+### also needed.
 
 ### Copyright (C) 2008  Rafael Laboissiere
 ###
@@ -33,6 +33,7 @@ use strict;
 use OpenOffice::OODoc;
 use Getopt::Long;
 use File::Temp qw [tempfile];
+use Image::Magick;
 
 ### Program name
 (my $prog = $0) =~ s{^.*/}{};
@@ -86,8 +87,11 @@ foreach my $i (1 .. $npages) {
     push (@files, $pngpage);
 
     ## Convert page to PNG image
-    system ("convert -density 300x300 -resize $size $pdfpage $pngpage") == 0
-      or die "$prog:E: convert PDF->PNG file for page $i\n";
+    my $image = Image::Magick -> new ();
+    $image -> Set (density => "300x300");
+    $image -> Resize (geometry => $size);
+    $image -> Read ($pdfpage);
+    $image -> Write ($pngpage);
 
     ## Create new page in presentation
     my $page = $document -> appendElement (
