@@ -102,7 +102,7 @@ foreach $i (1 .. $npages) {
         style           => "slide");
 
     ## Progress meter
-    print (sprintf ("\rPage: %4d (out of $npages)", $i));
+    printf ("\rPage: %4d (out of $npages)", $i);
 }
 
 print "\n";
