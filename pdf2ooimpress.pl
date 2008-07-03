@@ -69,6 +69,9 @@ $document -> createImageStyle ("slide");
 ### Store PNG file names for later removal
 my @files = ();
 
+### Autoflush STDOUT
+$| = 1;
+
 print (sprintf ("Page: %4d (out of $npages)", 0));
 
 foreach my $i (1 .. $npages) {
