@@ -25,6 +25,8 @@
 ### along with this program.  If not, see
 ### <http://www.gnu.org/licenses/>.
 
+### Thanks to Ben Okopnik for the suggestions to improve this script.
+
 ### $Id$
 
 use strict;
