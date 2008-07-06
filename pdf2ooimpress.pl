@@ -26,11 +26,31 @@
 ### $Id$
 
 use strict;
-use OpenOffice::OODoc;
-use Getopt::Long;
-use File::Temp qw [tempfile];
-use Image::Magick;
-use PDF::API2;
+
+eval { use OpenOffice::OODoc };
+die "OpenOffice::OODoc isn't installed on your system; "
+  . "it's available from http://cpan.org/.\n"
+  if $@;
+
+eval { use Getopt::Long };
+die "Getopt::Long isn't installed on your system; "
+  . "it's available from http://cpan.org/.\n"
+  if $@;
+
+eval { use File::Temp qw [tempfile] };
+die "File::Temp isn't installed on your system; "
+  . "it's available from http://cpan.org/.\n"
+  if $@;
+
+eval { use Image::Magick };
+die "Image::Magick isn't installed on your system; "
+  . "it's available from http://cpan.org/.\n"
+  if $@;
+
+eval { use PDF::API2 };
+die "PDF::API2 isn't installed on your system; "
+  . "it's available from http://cpan.org/.\n"
+  if $@;
 
 ### Program name
 (my $prog = $0) =~ s{^.*/}{};
