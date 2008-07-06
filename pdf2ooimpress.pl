@@ -27,29 +27,27 @@
 
 use strict;
 
-eval { use OpenOffice::OODoc };
-die "OpenOffice::OODoc isn't installed on your system; "
-  . "it's available from http://cpan.org/.\n"
+my $errmsg =
+  "isn't installed on your system; it's available from http://cpan.org/.\n";
+
+eval 'use OpenOffice::OODoc';
+die "OpenOffice::OODoc $errmsg"
   if $@;
 
-eval { use Getopt::Long };
-die "Getopt::Long isn't installed on your system; "
-  . "it's available from http://cpan.org/.\n"
+eval 'use Getopt::Long';
+die "Getopt::Long $errmsg"
   if $@;
 
-eval { use File::Temp qw [tempfile] };
-die "File::Temp isn't installed on your system; "
-  . "it's available from http://cpan.org/.\n"
+eval 'use File::Temp qw [tempfile]';
+die "File::Temp $errmsg"
   if $@;
 
-eval { use Image::Magick };
-die "Image::Magick isn't installed on your system; "
-  . "it's available from http://cpan.org/.\n"
+eval 'use Image::Magick';
+die "Image::Magick $errmsg"
   if $@;
 
-eval { use PDF::API2 };
-die "PDF::API2 isn't installed on your system; "
-  . "it's available from http://cpan.org/.\n"
+eval 'use PDF::API2';
+die "PDF::API2 $errmsg"
   if $@;
 
 ### Program name
