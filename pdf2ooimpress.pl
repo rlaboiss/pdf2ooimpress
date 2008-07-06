@@ -68,7 +68,7 @@ my @files = ();
 ### Autoflush STDOUT
 local $| = 1;
 
-print (sprintf ("Page: %4d (out of $npages)", 0));
+printf ("Page: %4d (out of $npages)", 0);
 
 foreach my $i (1 .. $npages) {
 
