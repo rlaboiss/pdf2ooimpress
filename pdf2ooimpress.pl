@@ -60,7 +60,7 @@ die "$prog:E: --size option must be in NNNxMMM format\n"
   if not ($size =~ /^\d+x\d+$/);
 
 ### Check number of arguments
-die "Usage: $prog [--size=NNNxMMM] inputfile.pdf outputfile.swi\n"
+die "Usage: $prog [--size=NNNxMMM] inputfile.pdf outputfile.sxi\n(default size is $size pixels)\n"
   if (@ARGV != 2);
 
 ### Input paramenters
