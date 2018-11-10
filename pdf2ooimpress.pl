@@ -88,6 +88,10 @@ local $| = 1;
 
 printf ("Page: %4d (out of $npages)", 0);
 
+### Get name of first created page
+my $page = $document -> getAttribute ($document -> getElement ('//draw:page', 0),
+                                     'name');
+
 foreach my $i (1 .. $npages) {
 
     ## Get individual page in a separate PDF file
@@ -106,10 +110,6 @@ foreach my $i (1 .. $npages) {
     $image -> Read ($pdfpage);
     $image -> Write ($pngpage);
 
-    ## Create new page in presentation
-    my $page = $document -> appendElement (
-        "//office:presentation", 0, "draw:page");
-
     ## Add image to page
     $document -> createImageElement (
         "slide" . $i,
@@ -122,6 +122,13 @@ foreach my $i (1 .. $npages) {
 
     ## Progress meter
     printf ("\rPage: %4d (out of $npages)", $i);
+
+    ## Create new page in presentation
+    if ($i != $npages) {
+        $page = $document -> appendElement (
+            "//office:presentation", 0, "draw:page");
+    }
+
 }
 
 print "\n";
