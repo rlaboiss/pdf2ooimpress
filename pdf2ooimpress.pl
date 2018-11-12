@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 ### This script converts a PDF file containing slides for a presentation
-### into the OpenOffice Presentation format (.odp)
+### into the OpenDocument Presentation format (.odp)
 ### Based on a script written by K.-H. Herrmann June 2005
 ### (http://linuxgazette.net/116/misc/herrmann/img2ooImpress.pl.txt)
 
