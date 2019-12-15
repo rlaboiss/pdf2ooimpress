@@ -5,7 +5,7 @@
 ### Based on a script written by K.-H. Herrmann June 2005
 ### (http://linuxgazette.net/116/misc/herrmann/img2ooImpress.pl.txt)
 
-### Copyright (C) 2008  Rafael Laboissiere
+### Copyright (C) 2008, 2019  Rafael Laboissiere
 ###
 ### This program is free software: you can redistribute it and/or
 ### modify it under the terms of the GNU General Public License as
