@@ -23,8 +23,6 @@
 
 ### Thanks to Ben Okopnik for the suggestions to improve this script.
 
-### $Id$
-
 use strict;
 
 my $errmsg =
