@@ -13,7 +13,20 @@ pdf2ooimpress [--size=NNNxMMM] inputfile.pdf outputfile.odp
 
 (default size is 1024x768 pixels)
 
-### Installation
+## Dependencies
+
+The `pdf2ooimpress` script uses the modules `Getopt::Long`, `File::Temp`,
+`OpenOffice::OODoc`, `Image::Magick`, and `PDF::API2`.  The first two are
+standard in Perl and the later three can be installed like this, in
+Debian-based distributions:
+
+```
+apt install libimage-magick-perl
+apt install libopenoffice-oodoc-perl
+apt install libpdf-api2-perl
+```
+
+## Installation
 
 ```
 make install
